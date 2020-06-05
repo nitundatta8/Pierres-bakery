@@ -65,9 +65,9 @@ Please contact me with any suggestions or questions at nitun.2@gmail.com. Thank 
 * A user with a valid account can log in and out
 * All users have READ access to the entire application
 * Only logged-in users can:
-* Add a new treat or flavor
-* Update a treat or flavor
-* Delete a treat or flavor
+   - Add a new treat or flavor
+   - Update a treat or flavor
+   - Delete a treat or flavor
 * The user can route to a splashpage that displays all treats and flavors
 * The user can route to a specific treat or flavor and see all treats/flavors that belong to it
 
