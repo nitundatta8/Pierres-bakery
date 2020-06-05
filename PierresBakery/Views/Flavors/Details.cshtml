@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@using PierresBakery.Models
+@model PierresBakery.Models.Flavor;
 
 <h2>Flavor Details</h2>
 <hr />
@@ -14,7 +14,7 @@
 }
 else
 {
-  <h4>Treats the flavor contains:</h4>
+  <h4>Treats the Flavor contains:</h4>
   <ul>
   @foreach(var join in Model.Treats)
   {
@@ -23,6 +23,6 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Back to flavor", "Index")</p>
-@* <p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.FlavorId })</p>
-<p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.FlavorId })</p> *@
+<p>@Html.ActionLink("Back to Flavors", "Index")</p>
+<p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
