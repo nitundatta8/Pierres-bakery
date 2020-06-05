@@ -7,7 +7,7 @@ namespace PierresBakery.Models
 {
   public class PierresBakeryContextFactory : IDesignTimeDbContextFactory<PierresBakeryContext>
   {
-    LibraryContext IDesignTimeDbContextFactory<PierresBakeryContext>.CreateDbContext(string[] args)
+    PierresBakeryContext IDesignTimeDbContextFactory<PierresBakeryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())

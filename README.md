@@ -29,7 +29,7 @@ __A web application where a business owner to market their sweet and savory trea
 4. Download the MySQL Workbench DMG file [here](https://dev.mysql.com/downloads/file/?id=484391)
 5. Open Local instance 3306 with the password you set.
 6. Within the BestRestaurant directory add your MySQL password to the appsettings.json file on line 3.
-* "Server=localhost;Port=3306;database=nitun_datta;uid=root;pwd=YOURPASSWORDHERE;"
+* "Server=localhost;Port=3306;database=pierres_bakery;uid=root;pwd=YOURPASSWORDHERE;"
 * Make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
 
 #### To create a local version of the database:
@@ -37,7 +37,33 @@ __A web application where a business owner to market their sweet and savory trea
 2. Select the SQL + button in the top left of the navigation bar.
 3. Paste the following in the query section to create the database:
 
-Database query
+- CREATE DATABASE `pierres_bakery` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+- USE `pierres_bakery`;
+
+- CREATE TABLE `flavors` (
+  `FlavorId` int NOT NULL AUTO_INCREMENT,
+  `Name` longtext,
+  `Description` longtext,
+  PRIMARY KEY (`FlavorId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+- CREATE TABLE `treats` (
+  `TreatId` int NOT NULL AUTO_INCREMENT,
+  `Name` longtext,
+  `Description` longtext,
+  PRIMARY KEY (`TreatId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+- CREATE TABLE `flavortreats` (
+  `FlavorTreatId` int NOT NULL AUTO_INCREMENT,
+  `FlavorId` int NOT NULL,
+  `TreatId` int NOT NULL,
+  PRIMARY KEY (`FlavorTreatId`),
+  KEY `IX_FlavorTreats_FlavorId` (`FlavorId`),
+  KEY `IX_FlavorTreats_TreatId` (`TreatId`),
+  CONSTRAINT `FK_FlavorTreats_Flavors_FlavorId` FOREIGN KEY (`FlavorId`) REFERENCES `flavors` (`FlavorId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_FlavorTreats_Treats_TreatId` FOREIGN KEY (`TreatId`) REFERENCES `treats` (`TreatId`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 4. Press the lightning bolt button to run this command.
 5. If the database does not appear, right click in the schemas bar and select Refresh All.
