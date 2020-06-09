@@ -15,9 +15,14 @@ __A web application where a business owner to market their sweet and savory trea
 1. Clone this repository from GitHub.
 2. Open the downloaded directory in a text editor of your choice.
   (VSCode, Atom, etc.)
-3. Make sure that C#/.netcore2.2 is installed on your computer.  
-4. For launching the program navigate to the _HairSalon_ directory and run _dotnet build_.
-5. Next,run _dotnet run_ command in the same directory to to open a live server w/auto updated viewing.Then navigate to localhost:5000/.
+3. Make sure that C#/.netcore2.2 is installed on your computer.
+4. Ensure that  MySQL Community Server is installed on your computer.
+5. Within the PierresBakery directory add your MySQL password to the appsettings.json file.
+* "Server=localhost;Port=3306;database=pierres_bakery;uid=root;pwd=YOURPASSWORDHERE;"
+* Make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
+6. For launching the program navigate to the _PierresBakery_ directory and run _dotnet build_.
+7. Then run _dotnet ef database update_.
+8. Finaly,run _dotnet run_ command in the same directory to to open a live server w/auto updated viewing.Then navigate to localhost:5000/.
 
 #### If you need to install and configure MySQL:
 1. Download the MySQL Community Server DMG file [here](https://dev.mysql.com/downloads/file/?id=484914) with the "No thanks, just start my download" link.
@@ -27,46 +32,6 @@ __A web application where a business owner to market their sweet and savory trea
 3. Open the terminal and enter the command:
 *'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
 4. Download the MySQL Workbench DMG file [here](https://dev.mysql.com/downloads/file/?id=484391)
-5. Open Local instance 3306 with the password you set.
-6. Within the BestRestaurant directory add your MySQL password to the appsettings.json file on line 3.
-* "Server=localhost;Port=3306;database=pierres_bakery;uid=root;pwd=YOURPASSWORDHERE;"
-* Make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
-
-#### To create a local version of the database:
-1. Open MySQL Workbench and Local Instance 3306.
-2. Select the SQL + button in the top left of the navigation bar.
-3. Paste the following in the query section to create the database:
-
-- CREATE DATABASE `pierres_bakery` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-- USE `pierres_bakery`;
-
-- CREATE TABLE `flavors` (
-  `FlavorId` int NOT NULL AUTO_INCREMENT,
-  `Name` longtext,
-  `Description` longtext,
-  PRIMARY KEY (`FlavorId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-- CREATE TABLE `treats` (
-  `TreatId` int NOT NULL AUTO_INCREMENT,
-  `Name` longtext,
-  `Description` longtext,
-  PRIMARY KEY (`TreatId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-- CREATE TABLE `flavortreats` (
-  `FlavorTreatId` int NOT NULL AUTO_INCREMENT,
-  `FlavorId` int NOT NULL,
-  `TreatId` int NOT NULL,
-  PRIMARY KEY (`FlavorTreatId`),
-  KEY `IX_FlavorTreats_FlavorId` (`FlavorId`),
-  KEY `IX_FlavorTreats_TreatId` (`TreatId`),
-  CONSTRAINT `FK_FlavorTreats_Flavors_FlavorId` FOREIGN KEY (`FlavorId`) REFERENCES `flavors` (`FlavorId`) ON DELETE CASCADE,
-  CONSTRAINT `FK_FlavorTreats_Treats_TreatId` FOREIGN KEY (`TreatId`) REFERENCES `treats` (`TreatId`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-4. Press the lightning bolt button to run this command.
-5. If the database does not appear, right click in the schemas bar and select Refresh All.
 
 ### Known Bugs
 
