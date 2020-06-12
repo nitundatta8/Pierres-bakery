@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace PierresBakery.Controllers
 {
@@ -36,15 +37,17 @@ namespace PierresBakery.Controllers
       return View();
     }
     [HttpPost]
-    public async Task<ActionResult> Create(Treat treat, int FlavourId)
+    public async Task<ActionResult> Create(Treat treat, int FlavorId)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       treat.User = currentUser;
       _db.Treats.Add(treat);
-      if (FlavourId != 0)
+
+      if (FlavorId != 0)
       {
-        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavourId, TreatId = treat.TreatId });
+        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+
       }
       _db.SaveChanges();
       return RedirectToAction("Index");

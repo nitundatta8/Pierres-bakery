@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "firstName": "Nitun",
+  "lastName": "Datta",
+  "username": "test",
+  "password": null,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1OTE4MTg2MjgsImV4cCI6MTU5MjQyMzQyOCwiaWF0IjoxNTkxODE4NjI4fQ.EKFeHc0aBti59ONZX21TtOPHlU13f7N6bEbPf2l7cSU"
+}

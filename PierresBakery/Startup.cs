@@ -56,13 +56,13 @@ namespace PierresBakery
       {
         routes.MapRoute(
           name: "default",
-          template: "{controller=Home}/{action=Index}/{id?}");
+          template: "{controller=home}/{action=index}/{id?}");
       });
 
-      app.Run(async (context) =>
-      {
-        await context.Response.WriteAsync("Something went wrong!");
-      });
+      /* app.Run(async (context) =>
+       {
+         await context.Response.WriteAsync("Something went wrong!1111111111");
+       }); */
     }
   }
 }

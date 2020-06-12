@@ -1,4 +1,4 @@
-div#navBar {
+/* div#navBar {
   position:fixed;
   top:0px;
   left:0px;
@@ -21,7 +21,7 @@ div#navBar {
   font-family:'Roboto',sans-serif;
   font-weight:700;
   color: rgb(129, 11, 11);
-  /* text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.37); */
+  
   text-align:center;
   transition: all 0.2s;
 }
@@ -31,7 +31,7 @@ div#navBar {
 }
 body {
   background-color: green;
-  background: linear-gradient(rgb(255, 83, 83), rgb(105, 39, 48), rgba(231, 15, 15, 0.986));
+  background: linear-gradient(rgb(236, 185, 185), rgb(212, 160, 167), rgba(238, 161, 161, 0.986));
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
@@ -64,4 +64,4 @@ img {
   left: 50%;
   margin: -100px 0 0 -150px;
   
-}
+} */
